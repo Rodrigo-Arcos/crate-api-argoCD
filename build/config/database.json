@@ -1,0 +1,20 @@
+{
+  "development": {
+    "username": "usach",
+    "password": "usach",
+    "database": "db_prueba",
+    "host": "127.0.0.1",
+    "port": "3306",
+    "dialect": "mysql",
+    "seederStorage": "sequelize"
+  },
+  "production": {
+    "username": "usach",
+    "password": "usach",
+    "database": "db_prueba",
+    "host": "127.0.0.1",
+    "port": "3306",
+    "dialect": "mysql",
+    "seederStorage": "sequelize"
+  }
+}

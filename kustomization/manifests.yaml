@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: sheiley-shop-api
+  name: sheiley-shop-api
+spec:
+  ports:
+  - name: "5018"
+    port: 5018
+    targetPort: 80
+  selector:
+    io.kompose.service: sheiley-shop-api
+status:
+  loadBalancer: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: sheiley-shop-api
+  name: sheiley-shop-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: sheiley-shop-api
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: sheiley-shop-api
+    spec:
+      containers:
+      - image: rodrigoarcos/backend-jenkins:1.1
+        name: sheiley-shop-api
+        ports:
+        - containerPort: 80
+        resources: {}
+      restartPolicy: Always
+status: {}
