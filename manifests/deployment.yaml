@@ -12,6 +12,8 @@ spec:
       labels:
         app: backend
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
         - name: backend
           image: rodrigoarcos/backend-jenkins:66
