@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: rodrigoarcos/backend-jenkins:1.1
+          image: rodrigoarcos/backend-jenkins:66
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
