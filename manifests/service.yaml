@@ -1,19 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: kompose convert -f docker-compose.yml
-    kompose.version: 1.26.0 (40646f47)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: sheiley-shop-api
-  name: sheiley-shop-api
+  name: backend
 spec:
-  ports:
-    - name: "5018"
-      port: 5018
-      targetPort: 80
+  type: NodePort
   selector:
-    io.kompose.service: sheiley-shop-api
-status:
-  loadBalancer: {}
+    app: backend
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
+    nodePort: 31001

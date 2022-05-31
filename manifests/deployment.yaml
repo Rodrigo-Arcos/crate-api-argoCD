@@ -1,33 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert -f docker-compose.yml
-    kompose.version: 1.26.0 (40646f47)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: sheiley-shop-api
-  name: sheiley-shop-api
+  name: backend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      io.kompose.service: sheiley-shop-api
-  strategy: {}
+      app: backend
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert -f docker-compose.yml
-        kompose.version: 1.26.0 (40646f47)
-      creationTimestamp: null
       labels:
-        io.kompose.service: sheiley-shop-api
+        app: backend
     spec:
       containers:
-        - image: rodrigoarcos/backend-jenkins:1.1
-          name: sheiley-shop-api
+        - name: backend
+          image: rodrigoarcos/backend-jenkins:1.1
+          imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 80
-          resources: {}
-      restartPolicy: Always
-status: {}
+            - containerPort: 8000
