@@ -3,7 +3,7 @@ kind: Kustomization
 
 images:
 - name: rodrigoarcos/backend-jenkins
-  newTag: "66"
+  newTag: $BUILD_NUMBER
 
 resources:
 - deployment.yaml
