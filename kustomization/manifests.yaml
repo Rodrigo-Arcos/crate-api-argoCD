@@ -26,11 +26,11 @@ spec:
       labels:
         app: backend
     spec:
-      imagePullSecrets:
-        - name: regcred
       containers:
       - image: rodrigoarcos/backend-jenkins:66
         imagePullPolicy: IfNotPresent
         name: backend
         ports:
         - containerPort: 8000
+      imagePullSecrets:
+      - name: regcred
