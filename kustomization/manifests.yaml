@@ -27,10 +27,20 @@ spec:
         app: backend
     spec:
       containers:
-      - image: rodrigoarcos/backend-jenkins:1
+      - image: rodrigoarcos/backend-jenkins:2
         imagePullPolicy: IfNotPresent
         name: backend
         ports:
         - containerPort: 8000
       imagePullSecrets:
       - name: regcred
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: backend
+subsets:
+- addresses:
+  - ip: 192.168.49.2
+  ports:
+  - port: 31001
