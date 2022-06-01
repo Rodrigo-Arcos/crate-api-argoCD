@@ -27,7 +27,7 @@ spec:
         app: backend
     spec:
       containers:
-      - image: rodrigoarcos/backend-jenkins:2
+      - image: rodrigoarcos/backend-jenkins:3
         imagePullPolicy: IfNotPresent
         name: backend
         ports:
