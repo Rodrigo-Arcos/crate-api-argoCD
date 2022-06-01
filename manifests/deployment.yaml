@@ -16,7 +16,7 @@ spec:
         - name: regcred
       containers:
         - name: backend
-          image: rodrigoarcos/backend-jenkins:${{ github.run_number }}
+          image: rodrigoarcos/backend-jenkins
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
