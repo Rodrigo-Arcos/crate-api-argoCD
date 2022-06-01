@@ -56,7 +56,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         run: |-
           cd manifests
-          kustomize edit set image ${{ secrets.DOCKER_USERNAME }}/backend-jenkins:$BUILD_NUMBER
+          kustomize edit set image ${{ secrets.DOCKER_USERNAME }}/backend-jenkins:${{ github.run_number }}
           cat kustomization.yaml
           kustomize build ./ > ../kustomization/manifests.yaml
           cat ../kustomization/manifests.yaml
