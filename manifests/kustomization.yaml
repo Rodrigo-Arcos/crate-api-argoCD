@@ -3,7 +3,7 @@ kind: Kustomization
 
 images:
 - name: rodrigoarcos/backend-jenkins
-  newTag: "11"
+  newTag: "14"
 
 resources:
 - deployment.yaml
